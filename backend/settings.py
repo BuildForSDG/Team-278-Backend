@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'imagekit',
     'home',
     'farmer',
+    'investor',
     'accounts',
     
 ]
