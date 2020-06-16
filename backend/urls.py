@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('home.urls')),
     # url(r'^boards/', include('boards.urls')),
-    # url(r'^accounts/', include('accounts.urls')),
+    url(r'^accounts/', include('accounts.urls')),
 ]
 
 # if settings.DEBUG:
