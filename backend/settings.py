@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'imagekit',
     'home',
-    #'boards',
+    'farmer',
     'accounts',
     
 ]

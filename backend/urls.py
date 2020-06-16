@@ -31,7 +31,7 @@ from django.views.static import serve
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('home.urls')),
-    # url(r'^boards/', include('boards.urls')),
+    url(r'^farmers/', include('farmer.urls')),
     url(r'^accounts/', include('accounts.urls')),
 ]
 
