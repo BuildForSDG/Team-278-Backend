@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Specialiste in Food Safety, Food Quality and Food Innovation">
+    <meta name="author" content="Patrick Bope">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="css/bootstrap-form-helpers.min.css" rel="stylesheet" media="screen">
+    <link rel="icon" href= "{% static 'imgs/home/limafrilogo.jpeg' %}" type="image/gif" sizes="24x24">
+    <link rel="stylesheet" href="{% static 'css/home/bootstrap-formhelpers.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/index.css' %}">
+  
+  </head>
+  <body>
+    <header>
+      <nav class=" container navbar navbar-expand-md bg-light text-white">
+        <a class="navbar-brand" href="/"><h1> <span class="highlight img-fluid"><img src="{% static 'imgs/home/limafrilogo.jpeg' %}" alt="Logo" height="100" width="200" ></h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarCollapse">
+          <ul class="nav navbar-nav ">
+            <li class="navbar-right">
+                
+              <div class="collapse navbar-collapse" id="mainMenu">
+                  {% if user.is_authenticated %}
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                          <a class="dropdown-item" href="#">My account</a>
+                          <a class="dropdown-item" href="#">Change password</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{}">Log out</a>
+                        </div>
+                      </li>
+                    </ul>
+                  {% else %}
+                    <form class="form-inline ml-auto">
+                      <a href="{}" class="btn btn-outline-success my-2 my-sm-0">Log in</a>
+                      <a href="{}" class="btn btn-success ml-2">Sign up</a>
+                    </form>
+                  {% endif %}
+              </div>
+                                  
+            </li>
+          </ul>
+        </div>
+        
+      </nav>
+        
+    </header>
+    <section class="container align-center">
+      <form class="form-inline ml-auto">
+        <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Search</button>
+      </form>     
+    </section>
+    <hr>
+    {% block content %}
+    {% endblock %}
+
+   
+    <footer class=" container bg-light text-black"> 
+      <section style="text-align:center; margin:10px auto;">
+        <p>Designed by <a href="/">Patrick Bope</a></p>
+        <p>Copyright &copy; 2017 limafri. <a href="">Privacy Policy</a>/<a href="">Terms of Use</a>/<a href="">Sitemap</a> </p>
+        <p class="float-right"><a href="#">Back to top</a></p>
+      </section>
+    </footer>
+  
+    <script src="{% static 'js/home/main.js' %}"></script>
+    <script src="{% static 'js/home/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/home/popper.min.js' %}"></script>
+    <script src="{% static 'js/home/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/home/bootstrap-formhelpers.min.js' %}"></script>
+            
+  </body>
