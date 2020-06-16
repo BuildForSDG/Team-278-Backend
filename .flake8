@@ -17,5 +17,6 @@ exclude =
   .github
   tests/fixtures/
   tests/utils/fixtures/
+  limaafri/limaafri/settings.py
 
 max-complexity = 10
