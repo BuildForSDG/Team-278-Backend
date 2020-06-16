@@ -1,0 +1,64 @@
+{% extends 'home/index.html' %}
+{% block title %}
+FARMERS
+{% endblock %}
+{% block content %}
+
+<section>
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-12"> 
+                
+                                
+                <div class="container">
+                    <ol class="breadcrumb my-4">
+                        <li class="breadcrumb-item active"><h1>Farmers</h1></li>
+                    </ol>
+                    {% for farmer in farmers %}
+                    
+                        <div class="card mb-3" style=" max-width: 540px;">
+                            <div class="row no-gutters">
+                              <div class="col-md-4">
+                                <img src="/static/imgs/home/farmer.jpg" class="card-img" alt="...">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{ farmer.name }} {{ farmer.lastname }}</h5>
+                                  <p class="card-text">{{ farmer.full_description }}</p>
+                                  <div class="row">
+                                    <div class="col-sm-4">
+                                        <p class="card-text">{{ farmer.country }}</p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <p class="card-text">{{ farmer.state }}</p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <p class="card-text">{{ farmer.city }}</p>
+                                    </div>
+
+                                  </div>
+                                  <hr>
+                                  <p class="card-text">{{ farmer.website }}</p>
+                                  <p class="card-text">{{ farmer.email}}</p>
+                                  <p class="card-text">{{ farmer.telephone }}</p>
+                                  <p class="card-text"><small class="text-muted">{{ farmer.last_updated}}</small></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    
+                    {% endfor %}
+                      
+                </div>
+                
+                
+                                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
