@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'imagekit',
     'home',
     #'boards',
-    #'accounts',
+    'accounts',
     
 ]
 
@@ -148,11 +148,11 @@ STATICFILES_DIRS = [
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_URL = '/media/'
 
-# LOGOUT_REDIRECT_URL = 'homePage'
-# LOGIN_REDIRECT_URL = 'homePage'
+LOGOUT_REDIRECT_URL = 'homePage'
+LOGIN_REDIRECT_URL = 'homePage'
 
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# LOGIN_URL = 'login'
+LOGIN_URL = 'login'
 
 # INTERNAL_IPS = ['127.0.0.1']
