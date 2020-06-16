@@ -227,3 +227,13 @@ pip-selfcheck.json
 .idea/
 
 .pytest_cache/
+
+__pycache__/
+*.py[cod]
+.env
+myvenv/
+
+
+# SQLite database files
+
+*.sqlite3
