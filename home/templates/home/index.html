@@ -10,175 +10,75 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="css/bootstrap-form-helpers.min.css" rel="stylesheet" media="screen">
-    <link rel="icon" href= "{% static 'imgs/home/AWLogo.jpg' %}" type="image/gif" sizes="24x24">
+    <link rel="icon" href= "{% static 'imgs/home/limafrilogo.jpeg' %}" type="image/gif" sizes="24x24">
     <link rel="stylesheet" href="{% static 'css/home/bootstrap-formhelpers.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/home/index.css' %}">
   
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-secondary text-white">
-        <a class="navbar-brand" href="/"><h1> <span class="highlight img-fluid"><img src="{% static 'imgs/home/AWLogo.jpg' %}" alt="Logo" height="50" width="50" ></span> <strong class="text-success">Agro</strong><strong class="text-dark">Whizz</strong></h1></a>
+      <nav class=" container navbar navbar-expand-md bg-light text-white">
+        <a class="navbar-brand" href="/"><h1> <span class="highlight img-fluid"><img src="{% static 'imgs/home/limafrilogo.jpeg' %}" alt="Logo" height="100" width="200" ></h1></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href={% url 'whatWeDo'%}>ABOUT</a>
-            </li>
-            
-            <li class="nav-item dropdown ">
-              <a class="nav-link dropdown-toggle" href={% url 'whatWeServe'%} id="navbarDropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                PRODUCT
-              </a >
-              <div class="dropdown-menu bg-secondary" id="mainmenu" aria-labelledby="navbarDropdownMenuLink">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <ul class="flex-column">
-                        <!-- <li><a class="dropdown-item" href={}>Database</a></li> -->
-                        <li><a class="dropdown-item" href="#">Training</a></li>
-                        <li><a class="dropdown-item" href="#">Consulting</a></li>
-                        <li class="divider"></li>
-                      </ul>                  
-                    </div>
-                    
-                  </div>
-                  
-                </div>
+        <div class="collapse navbar-collapse " id="navbarCollapse">
+          <ul class="nav navbar-nav ">
+            <li class="navbar-right">
                 
-                
+              <div class="collapse navbar-collapse" id="mainMenu">
+                  {% if user.is_authenticated %}
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                          <a class="dropdown-item" href="#">My account</a>
+                          <a class="dropdown-item" href="#">Change password</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{}">Log out</a>
+                        </div>
+                      </li>
+                    </ul>
+                  {% else %}
+                    <form class="form-inline ml-auto">
+                      <a href="{}" class="btn btn-outline-success my-2 my-sm-0">Log in</a>
+                      <a href="{}" class="btn btn-success ml-2">Sign up</a>
+                    </form>
+                  {% endif %}
               </div>
-              
-            </li>
-            <li class="nav-item">
-              <!-- <a class="nav-link" href={}>BLOG</a> -->
-            </li>          
-            
-            <li class="nav-item">
-              <!-- <a class="nav-link" href={}>FORUM</a> -->
+                                  
             </li>
           </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-          <ul class="nav navbar-nav navbar-right">
-              <li >
-                  
-                <!-- <div class="collapse navbar-collapse" id="mainMenu">
-                    {% if user.is_authenticated %}
-                      <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ user.username }}
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
-                            <a class="dropdown-item" href="#">My account</a>
-                            <a class="dropdown-item" href="#">Change password</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{}">Log out</a>
-                          </div>
-                        </li>
-                      </ul>
-                    {% else %}
-                      <form class="form-inline ml-auto">
-                        <a href="{}" class="btn btn-outline-success my-2 my-sm-0">Log in</a>
-                        <a href="{}" class="btn btn-success ml-2">Sign up</a>
-                      </form>
-                    {% endif %}
-                </div> -->
-                                    
-              </li>
-          </ul>
-        </div>       
-      </nav>
-      
-      
-      <div class="container bg-white text-dark">
-        <div class="row align-items-center">
-          
-          
         </div>
-      </div>  
-      
-  
+        
+      </nav>
+        
     </header>
-    
+    <section class="container align-center">
+      <form class="form-inline ml-auto">
+        <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Search</button>
+      </form>     
+    </section>
+    <hr>
     {% block content %}
     {% endblock %}
 
    
-  <footer class=" bg-secondary text-white"> 
-    <div class="container ">
-    <!----------- Footer ------------>
-    
-      <div class="row">
-        <div class="col-md-3 animated ">
-            <h2><span class="highlight img-fluid"><img src="{% static 'imgs/home/AWLogo.jpg' %}" alt="Logo" height="50" width="50" ></span></h2>
-              <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
-              <p>© 2018 58 Batts Rd Wymberg, All rights reserved</p>
-          </div>
-        <div class="col-md-4  animated ">
-            <h4>Menu —</h4>
-            <div class="col-md-6 list-unstyled">
-                  <ul >
-                      <li><a href="#">Travel</a></li>
-                      <li><a href="#">Nature</a></li>
-                      <li><a href="#">Explores</a></li>
-                      <li><a href="#">Science</a></li>
-                      <li><a href="#">Advice</a></li>
-                    </ul>
-                </div>
-              <div class="col-md-6">
-                    <ul class="list">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contacts</a></li>
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-          <div class="col-md-2  animated ">
-              <h4>Follow Us</h4>
-              <ul>
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Twitter</a></li>
-                  <li><a href="#">Instagram</a></li>
-                  <li><a href="#">RSS</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3  animated ">
-              <h4>Newsletter</h4>
-                <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
-                <p>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Search for...">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
-                      </span>
-                    </div><!-- /input-group -->
-                  </p>
-            </div>
-        </div>
-      
+    <footer class=" container bg-light text-black"> 
       <section style="text-align:center; margin:10px auto;">
         <p>Designed by <a href="/">Patrick Bope</a></p>
-        <p>Copyright &copy; 2017 Agro-Whizz. <a href="privacy.html">Privacy Policy</a>/<a href="terms.html">Terms of Use</a>/<a href="sitemap.html">Sitemap</a> </p>
+        <p>Copyright &copy; 2017 limafri. <a href="">Privacy Policy</a>/<a href="">Terms of Use</a>/<a href="">Sitemap</a> </p>
         <p class="float-right"><a href="#">Back to top</a></p>
       </section>
+    </footer>
   
-  </div>  
-  </footer>
-  
-  <script src="{% static 'js/home/main.js' %}"></script>
-  <script src="{% static 'js/home/jquery-3.3.1.min.js' %}"></script>
-  <script src="{% static 'js/home/popper.min.js' %}"></script>
-  <script src="{% static 'js/home/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/home/bootstrap-formhelpers.min.js' %}"></script>
+    <script src="{% static 'js/home/main.js' %}"></script>
+    <script src="{% static 'js/home/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/home/popper.min.js' %}"></script>
+    <script src="{% static 'js/home/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/home/bootstrap-formhelpers.min.js' %}"></script>
             
   </body>
